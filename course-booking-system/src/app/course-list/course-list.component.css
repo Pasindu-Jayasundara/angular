@@ -1,0 +1,18 @@
+* {
+  box-sizing: border-box;
+}
+.container {
+  width: 100vw;
+  display: flex;
+  padding-inline: 8px;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.wish-list{
+  background-color: rgba(148, 4, 52, 0.432);
+  margin-bottom: 10px;
+}
+.booked-list{
+  background-color: rgba(148, 148, 4, 0.432);
+  margin-bottom: 10px;
+}

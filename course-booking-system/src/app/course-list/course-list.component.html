@@ -1,0 +1,32 @@
+<p style="margin-left:8px">{{title}}</p>
+
+
+@if(wishList.length > 0){
+    <p>My Wish List</p>
+    <div class="wish-list">
+        <span>💖 </span>
+        @for(course of wishList; track course.id){
+            <span>  {{course.name}}</span>
+        }
+    </div>
+}
+
+@if(bookedList.length > 0){
+    <p>My Booked List</p>
+    <div class="booked-list">
+        <span>💵 </span>
+        @for(course of bookedList; track course.id){
+            <span>  {{course.name}}</span>
+        }
+    </div>
+}
+
+<div class="container">
+
+    @for(course of courses; track course.id){
+
+    <app-course-card [course]="course" (courseBooked)="onCourseBooked($event)"
+        (addToWishList)="addToWishList($event)"></app-course-card>
+    }
+
+</div>

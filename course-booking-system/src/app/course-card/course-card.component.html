@@ -1,0 +1,11 @@
+<div class="course-card">
+    <img class="course-image" src="{{course?.image}}" alt="{{course?.name}} logo" />
+    <div class="course-content">
+        <h2 class="course-title">{{course?.name}}</h2>
+        <p class="course-description">{{course?.description}}</p>
+        <p class="course-details">Duration: {{course?.duration}}</p>
+        <p class="price">{{course?.price | currency:'USD'}}</p>
+        <button [disabled]="course?.soldOut" class="btn-enroll" (click)="onBookCourse()">Book Course</button>
+        <button class="btn-enroll btn-wishlist" (click)="onAddToWishList()">Add To Wishlist</button>
+    </div>
+</div>
