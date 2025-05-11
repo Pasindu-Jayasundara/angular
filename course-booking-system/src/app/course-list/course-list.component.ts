@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CourseCardComponent } from '../course-card/course-card.component';
 import { Course } from '../models/course.model';
+import { CourseService } from '../services/course.service';
 
 @Component({
   selector: 'app-course-list',
@@ -9,21 +10,31 @@ import { Course } from '../models/course.model';
   styleUrl: './course-list.component.css'
 })
 
-export class CourseListComponent {
+export class CourseListComponent implements OnInit {
 
   title:string = 'Course List';
 
   wishList: Course[] = [];
   bookedList: Course[] = [];
 
-  courses: Course[] = [
-    { id: 1, name: 'Angular Basics', description: 'Learn the basics of Angular.', duration: '4 weeks', price: 200, soldOut:true,image:"downloadang.png" },
-    { id: 2, name: 'React Basics', description: 'Learn the basics of React.', duration: '4 weeks', price: 200, soldOut:false,image:"downloadang.png" },
-    { id: 3, name: 'Vue Basics', description: 'Learn the basics of Vue.', duration: '4 weeks', price: 200, soldOut:true,image:"downloadang.png" },
-    { id: 4, name: 'Node.js Basics', description: 'Learn the basics of Node.js.', duration: '4 weeks', price: 200, soldOut:false,image:"downloadang.png" },
-    { id: 5, name: 'Python Basics', description: 'Learn the basics of Python.', duration: '4 weeks', price: 200, soldOut:true,image:"downloadang.png" },
-  ]
+  courses: Course[] = [];
 
+  constructor(private courseService: CourseService) {
+  }
+
+  ngOnInit(): void{
+
+    this.courseService.getCourses().subscribe({
+
+      next:(data: Course[])=>{
+        this.courses = data;
+      },
+      error:(err)=>{
+        console.error('Error fetching courses:', err);
+      }
+
+     });
+  }
 
   onCourseBooked(course: Course): void {
 
