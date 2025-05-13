@@ -1,1 +1,8 @@
-<app-course-list></app-course-list>
+<nav class="navbar">
+    <ul>
+        <li>
+            <a routerLink="/courses" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">All Courses</a>
+        </li>
+    </ul>
+</nav>
+<router-outlet></router-outlet>

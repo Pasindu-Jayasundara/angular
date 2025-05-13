@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Course } from '../models/course.model';
 import { CourseService } from '../services/course.service';
 import { CurrencyPipe } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-course-detail',
@@ -9,11 +10,25 @@ import { CurrencyPipe } from '@angular/common';
   templateUrl: './course-detail.component.html',
   styleUrl: './course-detail.component.css'
 })
-export class CourseDetailComponent {
+export class CourseDetailComponent implements OnInit{
 
   course:Course | null = null;
 
-  constructor(private courseService:CourseService){}
+  constructor(private courseService:CourseService, private route:ActivatedRoute){}
+
+  ngOnInit(): void {
+      
+    this.route.paramMap.subscribe(params=>{
+
+      const idString = params.get("id");
+      if(idString){
+        
+        const id = +idString;
+        this.loadCourseById(id);
+      }
+
+    });
+  }
 
   loadCourseById(id:number):void{
 

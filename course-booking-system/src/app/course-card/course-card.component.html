@@ -5,6 +5,7 @@
         <p class="course-description">{{course?.description}}</p>
         <p class="course-details">Duration: {{course?.duration}}</p>
         <p class="price">{{course?.price | currency:'USD'}}</p>
+        <button class="btn-enroll btn-details" (click)="goToDetails(course?.id)">Course Details</button>
         <button [disabled]="course?.soldOut" class="btn-enroll" (click)="onBookCourse()">Book Course</button>
         <button class="btn-enroll btn-wishlist" (click)="onAddToWishList()">Add To Wishlist</button>
     </div>

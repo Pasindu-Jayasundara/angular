@@ -58,6 +58,7 @@
   transition: background-color 0.3s ease;
   width: 100%;
   box-shadow: 0 4px 6px rgb(26 115 232 / 0.4);
+  margin-top: 8px;
 }
 .btn-enroll:hover,
 .btn-enroll:focus {
@@ -91,5 +92,14 @@
 .btn-wishlist:hover,
 .btn-wishlist:focus {
   background-color: #5d4a04;
+  outline: none;
+}
+
+.btn-details{
+  background-color: #054312;
+}
+.btn-details:hover,
+.btn-details:focus {
+  background-color: #023306;
   outline: none;
 }
