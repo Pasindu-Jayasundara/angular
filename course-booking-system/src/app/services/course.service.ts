@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Course } from '../models/course.model';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Student } from '../models/student.model';
 
 @Injectable({
   providedIn: 'root',
@@ -86,5 +87,13 @@ export class CourseService {
 
   setSelectedCourse(course:Course):void{
     this.selectedCourse = course;
+  }
+
+  addStudent(student:Student):Observable<Student>{
+    return this.http.post<Student>(`${this.baseUrl}/students`,student);
+  }
+
+  getStudents():Observable<Student[]>{
+    return this.http.get<Student[]>(`${this.baseUrl}/students`);
   }
 }
