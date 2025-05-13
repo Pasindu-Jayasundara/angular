@@ -1,0 +1,26 @@
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+.student-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.student-table th, .student-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.student-table th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.student-table tr:hover {
+    background-color: #f1f1f1;
+}

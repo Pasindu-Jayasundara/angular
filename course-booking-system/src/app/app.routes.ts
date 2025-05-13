@@ -3,7 +3,6 @@ import { CourseListComponent } from './course-list/course-list.component';
 import { CourseDetailComponent } from './course-detail/course-detail.component';
 import { AboutComponent } from './about/about.component';
 import { SignUpFormComponent } from './sign-up-form/sign-up-form.component';
-import { AddNewCourseComponent } from './add-new-course/add-new-course.component';
 
 export const routes: Routes = [
     {path:'',redirectTo:'courses',pathMatch:'full'},
@@ -11,5 +10,8 @@ export const routes: Routes = [
     {path:'courses/:id',component:CourseDetailComponent},
     {path:'about',component:AboutComponent},
     {path:'sign-up',component:SignUpFormComponent},
-    {path:'add-new-course',component:AddNewCourseComponent},
+    {
+        path:'admin',
+        loadChildren:()=>import('./features/admin/admin.module').then()
+    }
 ];
